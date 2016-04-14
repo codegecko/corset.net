@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Owin;
-using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>>;
+using Corset.Core.Compression;
+using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
 namespace Corset.Core
 {
@@ -23,9 +22,14 @@ namespace Corset.Core
         }
 
 
-        public static async Task Invoke(IDictionary<string, object> environment)
+        public async Task Invoke(IDictionary<string, object> environment)
         {
-            await Next.Invoke(environment);
+            // var context = new OwinContext(environment);
+
+            var strategy = CompressionStrategy.New<GzipCompression>()
+                                            .ThenUse<DeflateCompression>()
+                                            .ThenUse<NoCompression>();
+            Next.Invoke(environment);
         }
 
     }

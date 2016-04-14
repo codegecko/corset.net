@@ -14,12 +14,6 @@ namespace Corset.Core
             public CompressionOptions Method { get; set; }
 
             public bool SaveCssToDisk { get; set; }
-
-            public bool 
-    }
-
-
-        
-
+        }
     }
 }

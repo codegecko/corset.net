@@ -1,14 +1,10 @@
 {
   "version": "0.1.0-*",
   "description": "Corset.Core Class Library",
-  "authors": [ "Benjamin Howarth, Code Gecko Ltd." ],
+  "authors": [ "Benjamin Howarth", "Code Gecko Ltd." ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
-  "compilationOptions": {
-    "define": ["DOTNET5"]
-  },
 
   "frameworks": {
     "net4": {
@@ -28,16 +24,26 @@
       },
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
-        "Microsoft.AspNet.Owin": "1.0.0-rc1-final",
+        "Microsoft.AspNet.Owin": "1.0.0-*",
         "System.Console": "4.0.0-beta-23516",
         "System.Collections": "4.0.11-beta-23516",
         "System.Linq": "4.0.1-beta-23516",
         "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516"
+        "System.Threading": "4.0.11-beta-23516",
+        "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final"
       }
     }
   },
   "configurations": {
-    ".NET 4": { }
+    ".NET 4": {
+      "compilationOptions": {
+        "define": [ "DOTNET4" ]
+      }
+    },
+    ".NET 5": {
+      "compilationOptions": {
+        "define": [ "DOTNET5" ]
+      }
+    }
   }
 }

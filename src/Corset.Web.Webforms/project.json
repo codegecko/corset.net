@@ -1,0 +1,14 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Corset.Web.Webforms Class Library",
+  "authors": [ "bha" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net40": {
+      "frameworkAssemblies": { "System.Web": "4.0.0.0" }
+    }
+  }
+}

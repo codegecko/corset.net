@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Corset.Core")]
+[assembly: AssemblyTitle("Corset.Web.Webforms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Code Gecko Ltd.")]
-[assembly: AssemblyProduct("Corset.Core")]
-[assembly: AssemblyCopyright("Copyright © Code Gecko Ltd. 2016")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("Corset.Web.Webforms")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,4 +20,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7964744c-4773-446c-bb8b-58a97f83d4e8")]
+[assembly: Guid("2eb4d89a-962e-4311-95c9-47369d11d522")]
