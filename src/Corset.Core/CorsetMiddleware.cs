@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Corset.Core.Compression;
+using Corset.Core.Hashing;
 using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
 namespace Corset.Core
@@ -26,9 +27,10 @@ namespace Corset.Core
         {
             // var context = new OwinContext(environment);
 
-            var strategy = CompressionStrategy.New<GzipCompression>()
+            var strategy = CompressionStrategy.Use<GzipCompression>()
                                             .ThenUse<DeflateCompression>()
                                             .ThenUse<NoCompression>();
+            var etagStrategy = ETagStrategy.Use<MD5HashGenerator>();
             Next.Invoke(environment);
         }
 

@@ -1,14 +1,16 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "Corset.Web.Webforms Class Library",
-  "authors": [ "bha" ],
+  "authors": [ "Benjamin Howarth", "Code Gecko Ltd." ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
   "frameworks": {
     "net40": {
       "frameworkAssemblies": { "System.Web": "4.0.0.0" }
     }
+  },
+  "dependencies": {
+    "Corset.Core": "0.1.0-*"
   }
 }

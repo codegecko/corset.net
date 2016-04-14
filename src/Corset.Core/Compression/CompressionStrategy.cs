@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Corset.Core.Compression;
 
-namespace Corset.Core
+namespace Corset.Core.Compression
 {
     public class CompressionStrategy
     {
@@ -13,7 +13,7 @@ namespace Corset.Core
             OrderOfCompression = list;
         }
 
-        internal List<Type> OrderOfCompression;
+        internal static List<Type> OrderOfCompression;
 
         public CompressionStrategy ThenUse<T>() where T : ICompression
         {
@@ -21,7 +21,7 @@ namespace Corset.Core
             return this;
         }
 
-        public static CompressionStrategy New<T>() where T : ICompression
+        public static CompressionStrategy Use<T>() where T : ICompression
         {
             return new CompressionStrategy(new List<Type>()).ThenUse<T>();
         }
