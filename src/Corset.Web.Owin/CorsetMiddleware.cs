@@ -6,7 +6,7 @@ using Corset.Core.Compression;
 using Corset.Core.Hashing;
 using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
-namespace Corset.Core
+namespace Corset.Web.Owin
 {
     public class CorsetMiddleware
     {

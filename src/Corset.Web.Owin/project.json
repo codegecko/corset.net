@@ -6,10 +6,30 @@
   "projectUrl": "",
   "licenseUrl": "",
 
+  "configurations": {
+    ".NET 4": {
+      "compilationOptions": {
+        "define": [ "DOTNET4" ]
+      }
+    },
+    ".NET 5": {
+      "compilationOptions": {
+        "define": [ "DOTNET5" ]
+      }
+    }
+  },
+
   "frameworks": {
-    "net451": { },
+    "net451": {      
+      "dependencies": {
+        "Corset.Core": "",
+        "Owin": "1.0.0",
+        "Microsoft.Owin": "3.0.1"
+      }
+    },
     "dotnet5.4": {
       "dependencies": {
+        "Corset.Core": "",
         "Microsoft.CSharp": "4.0.1-beta-23516",
         "System.Collections": "4.0.11-beta-23516",
         "System.Linq": "4.0.1-beta-23516",

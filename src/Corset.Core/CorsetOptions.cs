@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Corset.Core.Configuration;
+using Corset.Core.Compression;
 
 namespace Corset.Core
 {
@@ -11,7 +12,7 @@ namespace Corset.Core
 
         public class CSSCompressionOptions
         {
-            public CompressionOptions Method { get; set; }
+            public ICompression Method { get; set; }
 
             public bool SaveCssToDisk { get; set; }
         }

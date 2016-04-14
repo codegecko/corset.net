@@ -7,10 +7,10 @@
   "licenseUrl": "",
   "frameworks": {
     "net40": {
+      "dependencies": {
+        "Corset.Core": ""
+      },
       "frameworkAssemblies": { "System.Web": "4.0.0.0" }
     }
-  },
-  "dependencies": {
-    "Corset.Core": "0.1.0-*"
   }
 }
