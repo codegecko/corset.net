@@ -1,0 +1,30 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Corset.Web Class Library",
+  "authors": [ "Benjamin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "Corset.Core": "",
+  },
+  "frameworks": {
+    "net40": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      },
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": "4.0.20505"
+      }
+    },
+    "net452": {
+      "frameworkAssemblies": {
+        "System.Web": "4.0.0.0"
+      },
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": "4.0.20505"
+      }
+    }
+  }
+}

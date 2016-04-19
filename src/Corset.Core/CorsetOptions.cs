@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Corset.Core.Compression;
 using Corset.Core.Configuration;
 
 namespace Corset.Core
 {
-    public class CorsetOptions
+    public class CorsetOptions : ICorsetOptions
     {
 
-        public class CSSCompressionOptions
-        {
-            public CompressionOptions Method { get; set; }
+        private static CorsetOptions _current = new CorsetOptions();
+        public static CorsetOptions Current { get { return _current; } }
 
-            public bool SaveCssToDisk { get; set; }
-
-            public bool 
-    }
-
-
-        
-
+        public Dictionary<Func<object, object, bool>, Func<object>> Invocations = new Dictionary<Func<object, object, bool>, Func<object>>();
     }
 }

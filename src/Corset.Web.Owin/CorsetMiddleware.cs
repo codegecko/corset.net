@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Owin;
-using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>>;
+using AppFunc = System.Func<System.Collections.Generic.IDictionary<string, object>, System.Threading.Tasks.Task>;
 
 namespace Corset.Core
 {
@@ -12,7 +10,9 @@ namespace Corset.Core
     {
         public AppFunc Next { get; set; }
 
-        public CorsetMiddleware(AppFunc next)
+        private CorsetOptions Options { get; set; }
+
+        public CorsetMiddleware(AppFunc next, CorsetOptions options)
         {
             Next = next;
         }
@@ -23,7 +23,7 @@ namespace Corset.Core
         }
 
 
-        public static async Task Invoke(IDictionary<string, object> environment)
+        public async Task Invoke(IDictionary<string, object> environment)
         {
             await Next.Invoke(environment);
         }

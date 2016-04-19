@@ -1,0 +1,19 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Corset.Web.Owin Class Library",
+  "authors": [ "Benjamin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "Corset.Core": ""
+  },
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "Microsoft.Owin": "3.0.1"
+      }
+    }
+  }
+}
