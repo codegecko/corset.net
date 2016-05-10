@@ -8,9 +8,9 @@ namespace Corset.Core.Compression
     public class CompressionStrategy
     {
 
-        private static ICompression nullRef = null;
+        internal ICompression nullRef = null;
 
-        internal static List<ICompression> ListOfModules = new List<ICompression>();
+        internal List<ICompression> ListOfModules = new List<ICompression>();
 
         public static CompressionStrategy Use<T>() where T : ICompression
         {
@@ -23,19 +23,9 @@ namespace Corset.Core.Compression
             return this;
         }
 
-        public static ICompression Get(string compressionCode) {
-            return ListOfModules.DefaultIfEmpty(nullRef)
-                                .SingleOrDefault(p => p.AcceptType.Equals(compressionCode));
-        }
-
-        public static ICompression GetFirstAvailable(string[] compressionCodes)
+        public void FallbackTo<T>() where T : ICompression
         {
-            foreach(var compression in compressionCodes)
-            {
-                return ListOfModules.DefaultIfEmpty(nullRef)
-                                    .FirstOrDefault(c => c.AcceptType.Equals(compression, StringComparison.CurrentCultureIgnoreCase));
-            }
-            return nullRef;
+            nullRef = Activator.CreateInstance<T>();
         }
     }
 }

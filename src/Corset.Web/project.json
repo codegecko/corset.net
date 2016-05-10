@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "Corset.Web Class Library",
   "authors": [ "Benjamin" ],
@@ -7,7 +7,7 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "Corset.Core": "",
+    "Corset.Core": ""
   },
   "frameworks": {
     "net40": {
@@ -23,7 +23,9 @@
         "System.Web": "4.0.0.0"
       },
       "dependencies": {
-        "Microsoft.AspNet.Mvc": "4.0.20505"
+        "Microsoft.AspNet.Mvc": "4.0.20505",
+        "Microsoft.CodeAnalysis.CSharp": "1.1.0-rc1-20151109-01",
+        "System.Collections.Immutable": "1.1.37"
       }
     }
   }

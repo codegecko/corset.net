@@ -9,7 +9,7 @@ namespace Corset.Core.Extensions {
     public static class StreamExtensions {
 
         public static string ToReadableString(this Stream stream) {
-            return stream.ToReadableString(Encoding.Unicode);
+            return stream.ToReadableString(Encoding.Default);
         }
 
         public static string ToReadableString(this Stream stream, Encoding encoding) {

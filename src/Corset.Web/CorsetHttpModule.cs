@@ -21,9 +21,7 @@ namespace Corset.Web
         private void Context_EndRequest(object sender, EventArgs e)
         {
             var app = (HttpApplication)sender;
-            foreach (var req in Corset.Core.CorsetOptions.Current.Invocations) {
-                if (req.Key(app.Request, app.Response)) req.Value();
-            }
+            
         }
     }
 }

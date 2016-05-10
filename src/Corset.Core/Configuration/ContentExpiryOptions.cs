@@ -8,7 +8,7 @@ namespace Corset.Core.Configuration
     public class ContentExpiryOptions
     {
 
-        private static DateTime FixedExpiry = DateTime.UtcNow.Subtract(RollingExpiry);
+        private static DateTime FixedExpiry = DateTime.UtcNow.Add(RollingExpiry);
 
         private static TimeSpan RollingExpiry = TimeSpan.FromMinutes(1d);
     }
