@@ -8,9 +8,9 @@ namespace Corset.Core.Compression
     public class CompressionStrategy
     {
 
-        internal ICompression nullRef = null;
+        private ICompression nullRef = null;
 
-        internal List<ICompression> ListOfModules = new List<ICompression>();
+        public List<ICompression> Modules = new List<ICompression>();
 
         public static CompressionStrategy Use<T>() where T : ICompression
         {
@@ -19,7 +19,7 @@ namespace Corset.Core.Compression
 
         public CompressionStrategy ThenUse<T>() where T : ICompression
         {
-            ListOfModules.Add(Activator.CreateInstance<T>());
+            Modules.Add(Activator.CreateInstance<T>());
             return this;
         }
 

@@ -14,23 +14,42 @@ namespace Corset.Web.Configuration
 {
     public class ConfigureCorset : ConfigureCorsetCore<HttpRequestBase, HttpResponseBase> {
 
-        static ConfigureCorset()
-        {
-            Instance = Instance ?? new ConfigureCorset();
-        }
+        private static ConfigureCorset Instance => new ConfigureCorset();
 
-        private static ConfigureCorset Instance { get; set; }
-
-        public ConfigureCorset For(TestExpr test, Expression<ICorsetConfigurationOptions<HttpRequestBase, HttpResponseBase>> action)
+        public static ConfigureCorset For(TestExpr test, Expression<ICorsetConfigurationOptions<HttpRequestBase, HttpResponseBase>> action)
         {
-            // Instance.Handlers.Add(new SingleEventHandler(test.Compile(), action.Compile()));
+            Instance.Handlers.Add(new MultipleEventHandler(test.Compile(), action.Compile().Actions));
             return Instance;
         }
 
-        public ConfigureCorset For<T>() where T : ICorsetHandler<HttpRequestBase, HttpResponseBase>, new()
+        public static ConfigureCorset For<T>() where T : ICorsetHandler<HttpRequestBase, HttpResponseBase>, new()
         {
             Instance.Handlers.Add(new T());
             return Instance;
+        }
+
+        public static ConfigureCorset ForCss(Expression<ICorsetConfigurationOptions<HttpRequestBase, HttpResponseBase>> action) {
+            return For((req, resp) => IsCssRequest(req, resp), action);
+        }
+
+        public static ConfigureCorset ForJavascript(Expression<ICorsetConfigurationOptions<HttpRequestBase, HttpResponseBase>> action) {
+            return For((req, resp) => IsJavascriptRequest(req, resp), action);
+        }
+
+        public static ConfigureCorset ForPng(Expression<ICorsetConfigurationOptions<HttpRequestBase, HttpResponseBase>> action) {
+            return For((req, resp) => IsPngRequest(req, resp), action);
+        }
+
+        private static bool IsCssRequest(HttpRequestBase req, HttpResponseBase resp) {
+            return resp.ContentType.Equals("text/css", StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        private static bool IsJavascriptRequest(HttpRequestBase req, HttpResponseBase resp) {
+            return resp.ContentType.IndexOf("javascript") > -1 || req.PhysicalPath.EndsWith("js");
+        }
+
+        private static bool IsPngRequest(HttpRequestBase req, HttpResponseBase resp) {
+            return resp.ContentType.IndexOf("png") > -1 || req.PhysicalPath.EndsWith("png");
         }
     }
 }

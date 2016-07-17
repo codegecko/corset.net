@@ -47,23 +47,32 @@ namespace Corset.Core.Compression
 
         public override void SetLength(long value) { _sink.SetLength(value); }
 
+        #if DOTNET4
         public override void Close() { _sink.Close(); }
+        #endif
 
         public override void Write(byte[] buffer, int offset, int count)
         {
             byte[] data = new byte[count];
             Buffer.BlockCopy(buffer, offset, data, 0, count);
+            #if DOTNET5
+            string html = System.Text.Encoding.UTF8.GetString(buffer);
+            #elif DOTNET4
             string html = System.Text.Encoding.Default.GetString(buffer);
+            #endif
 
             html = reg.Replace(html, string.Empty);
-
+            #if DOTNET5
+            byte[] outdata = System.Text.Encoding.UTF8.GetBytes(html);
+            #elif DOTNET4
             byte[] outdata = System.Text.Encoding.Default.GetBytes(html);
+            #endif
             _sink.Write(outdata, 0, outdata.GetLength(0));
         }
 
-        #endregion
+#endregion
 
     }
 
-    #endregion
+#endregion
 }

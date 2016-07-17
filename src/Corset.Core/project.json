@@ -6,7 +6,7 @@
   "projectUrl": "",
   "licenseUrl": "",
   "compilationOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": false
   },
   "frameworks": {
     "net40": {
@@ -28,15 +28,14 @@
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
         "Microsoft.AspNet.Owin": "1.0.0-rc1-final",
-        "System.Console": "4.0.0-beta-23516",
-        "System.Collections": "4.0.11-beta-23516",
-        "System.IO": "4.0.11-beta-23516",
-        "System.IO.Compression": "4.1.0-beta-23516",
-        "System.Linq": "4.0.1-beta-23516",
-        "System.Runtime": "4.0.21-beta-23516",
-        "System.Runtime.InteropServices": "4.0.21-beta-23516",
-        "System.Text.RegularExpressions": "4.0.11-beta-23516",
-        "System.Threading": "4.0.11-beta-23516"
+        "System.Collections": "4.0.10",
+        "System.IO": "4.0.10",
+        "System.IO.Compression": "4.0.0",
+        "System.Linq": "4.0.0",
+        "System.Runtime": "4.0.20",
+        "System.Runtime.InteropServices": "4.0.20",
+        "System.Text.RegularExpressions": "4.0.10",
+        "System.Threading": "4.0.10"
       }
     }
   }

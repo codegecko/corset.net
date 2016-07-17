@@ -9,7 +9,12 @@ namespace Corset.Core.Extensions {
     public static class StreamExtensions {
 
         public static string ToReadableString(this Stream stream) {
-            return stream.ToReadableString(Encoding.Default);
+            #if DOTNET4
+            var enc = Encoding.Default;
+            #elif DOTNET5
+            var enc = Encoding.UTF8;
+            #endif
+            return stream.ToReadableString(enc);
         }
 
         public static string ToReadableString(this Stream stream, Encoding encoding) {

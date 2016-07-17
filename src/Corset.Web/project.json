@@ -15,7 +15,8 @@
         "System.Web": "4.0.0.0"
       },
       "dependencies": {
-        "Microsoft.AspNet.Mvc": "4.0.20505"
+        "Microsoft.AspNet.Mvc": "4.0.20505",
+        "AjaxMin": "5.14.5506.26202"
       }
     },
     "net452": {
@@ -25,7 +26,8 @@
       "dependencies": {
         "Microsoft.AspNet.Mvc": "4.0.20505",
         "Microsoft.CodeAnalysis.CSharp": "1.1.0-rc1-20151109-01",
-        "System.Collections.Immutable": "1.1.37"
+        "System.Collections.Immutable": "1.1.37",
+        "AjaxMin": "5.14.5506.26202"
       }
     }
   }

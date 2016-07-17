@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Linq;
 using System.Web;
+using Corset.Core.Compression;
 using Corset.Web.Configuration;
-using Microsoft.CodeAnalysis;
+using Corset.Web.Extensions;
+
 
 namespace Corset.Web
 {
@@ -11,7 +11,9 @@ namespace Corset.Web
     {
         public void Application_Start(object sender, EventArgs e)
         {
-            
+            var del = ConfigureCorset.ForCss(opt => opt.EnableEtags(ETagStrategy.SHA256)
+                                                       .SetCacheControl("private"))
+                                    .ForJavascript(opt => )
         }
     }
 }

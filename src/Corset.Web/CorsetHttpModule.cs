@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Corset.Web.Configuration;
 
 namespace Corset.Web
 {
@@ -15,13 +16,20 @@ namespace Corset.Web
 
         public void Init(HttpApplication context)
         {
-            context.EndRequest += Context_EndRequest;
+            context.PreSendRequestHeaders += Context_PreSendRequestHeaders;
         }
 
-        private void Context_EndRequest(object sender, EventArgs e)
+        private void Context_PreSendRequestHeaders(object sender, EventArgs e)
         {
             var app = (HttpApplication)sender;
-            
+            var ctx = new HttpContextWrapper(app.Context);
+            foreach (var handler in ConfigureCorset.Instance.Handlers) {
+                if (handler.Supported(ctx.Request, ctx.Response)) {
+                    foreach (var action in handler.Actions) {
+                        action(ctx.Request, ctx.Response);
+                    }
+                }
+            }
         }
     }
 }
