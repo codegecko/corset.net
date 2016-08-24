@@ -1,41 +1,27 @@
 {
   "version": "0.1.0-*",
-  "description": "Corset.Core Class Library",
-  "authors": [ "Benjamin Howarth, Code Gecko Ltd." ],
-  "tags": [ "corset", "asp.net", "webforms", "owin", "compression", "gzip", "deflate" ],
-  "projectUrl": "",
-  "licenseUrl": "",
   "compilationOptions": {
     "emitEntryPoint": false
   },
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+
   "frameworks": {
     "net40": {
-      "compilationOptions": {
+      "buildOptions": {
         "define": [ "DOTNET4" ]
-      },
-      "dependencies": {
-        "Owin": "1.0.0"
-      },
-      "frameworkAssemblies": {
-        "System": "4.0.0.0",
-        "System.Management": "4.0.0.0"
+      }
+    },
+    "net461": {
+      "buildOptions": {
+        "define": [ "DOTNET4" ]
       }
     },
     "dnxcore50": {
-      "compilationOptions": {
+      "buildOptions": {
         "define": [ "DOTNET5" ]
-      },
-      "dependencies": {
-        "Microsoft.CSharp": "4.0.1-beta-23516",
-        "Microsoft.AspNet.Owin": "1.0.0-rc1-final",
-        "System.Collections": "4.0.10",
-        "System.IO": "4.0.10",
-        "System.IO.Compression": "4.0.0",
-        "System.Linq": "4.0.0",
-        "System.Runtime": "4.0.20",
-        "System.Runtime.InteropServices": "4.0.20",
-        "System.Text.RegularExpressions": "4.0.10",
-        "System.Threading": "4.0.10"
       }
     }
   }

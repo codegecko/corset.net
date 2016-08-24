@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace Corset.Web.Owin
 {
-    public class ICorsetOwinMiddlewareHandler : Corset.Core.IConfigureCorset<>
+    public class Program
     {
+        public static void Main(string[] args)
+        {
+        }
     }
 }

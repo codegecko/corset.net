@@ -12,8 +12,7 @@ namespace Corset.Web
         public void Application_Start(object sender, EventArgs e)
         {
             var del = ConfigureCorset.ForCss(opt => opt.EnableEtags(ETagStrategy.SHA256)
-                                                       .SetCacheControl("private"))
-                                    .ForJavascript(opt => )
+                                                       .SetCacheControl("private"));
         }
     }
 }

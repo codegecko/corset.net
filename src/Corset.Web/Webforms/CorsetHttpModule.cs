@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Corset.Web.Configuration;
 
-namespace Corset.Web
+namespace Corset.Web.Webforms
 {
     public class CorsetHttpModule : IHttpModule
     {

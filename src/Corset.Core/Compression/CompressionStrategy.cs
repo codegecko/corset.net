@@ -8,7 +8,7 @@ namespace Corset.Core.Compression
     public class CompressionStrategy
     {
 
-        private ICompression nullRef = null;
+        internal ICompression nullRef = null;
 
         public List<ICompression> Modules = new List<ICompression>();
 

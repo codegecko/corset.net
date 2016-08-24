@@ -55,17 +55,20 @@ namespace Corset.Core.Compression
         {
             byte[] data = new byte[count];
             Buffer.BlockCopy(buffer, offset, data, 0, count);
+            string html = string.Empty;
             #if DOTNET5
-            string html = System.Text.Encoding.UTF8.GetString(buffer);
+            html = System.Text.Encoding.UTF8.GetString(buffer);
             #elif DOTNET4
-            string html = System.Text.Encoding.Default.GetString(buffer);
+            html = System.Text.Encoding.Default.GetString(buffer);
             #endif
 
             html = reg.Replace(html, string.Empty);
+
+            byte[] outdata = null;
             #if DOTNET5
-            byte[] outdata = System.Text.Encoding.UTF8.GetBytes(html);
+            outdata = System.Text.Encoding.UTF8.GetBytes(html);
             #elif DOTNET4
-            byte[] outdata = System.Text.Encoding.Default.GetBytes(html);
+            outdata = System.Text.Encoding.Default.GetBytes(html);
             #endif
             _sink.Write(outdata, 0, outdata.GetLength(0));
         }

@@ -14,8 +14,12 @@ namespace Corset.Core
         where T1 : class
         where T2 : class
     {
-        private static IList<ICorsetHandler<T1, T2>> _handlers = new List<ICorsetHandler<T1, T2>>();
+        private static IList<Action<T1, T2>> _handlers = new List<Action<T1, T2>>();
 
-        public IList<ICorsetHandler<T1, T2>> Handlers { get { return _handlers; } }
+        public IList<Action<T1, T2>> Handlers { get { return _handlers; } }
+
+        public Expression<Action<T1, T2>> Use(Expression<Action<T1, T2>> action) {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,19 +1,19 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "Corset.Web.Owin Class Library",
-  "authors": [ "Benjamin" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
 
   "dependencies": {
-    "Corset.Core": ""
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0"
+    }
   },
+
   "frameworks": {
-    "net45": {
-      "dependencies": {
-        "Microsoft.Owin": "3.0.1"
-      }
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
     }
   }
 }

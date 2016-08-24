@@ -9,6 +9,8 @@ namespace Corset.Core
         where T1 : class
         where T2 : class
     {
-        IList<ICorsetHandler<T1, T2>> Handlers { get; }
+        IList<Action<T1, T2>> Handlers { get; }
+
+        Expression<Action<T1, T2>> Use(Expression<Action<T1, T2>> action);
     }
 }
